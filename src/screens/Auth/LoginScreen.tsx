@@ -2,10 +2,12 @@ import React from 'react';
 import { View, Text, Button, StyleSheet} from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
+import { useAuth } from './AuthContext';
 
 type props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
 export default function LoginScreen({navigation}: props){
+  const { loginMock } = useAuth();
 
   return (
     <View style = {styles.container}>
@@ -14,7 +16,7 @@ export default function LoginScreen({navigation}: props){
 
       <Button
         title='Go to Login again (Test)'
-        onPress={() => navigation.push('Login')}
+        onPress={loginMock}
       />
     </View>
   )
