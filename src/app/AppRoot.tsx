@@ -3,6 +3,7 @@ import React from 'react';
 import AuthStack from '../navigation/AuthStack';
 import { AuthProvider, useAuth } from '../screens/Auth/AuthContext';
 import AppStack from '../navigation/AppStack';
+import QueryProvider from './QueryProvider';
 
 function RootNavigator() {
   const {isLoggedIn} = useAuth();
@@ -11,11 +12,12 @@ function RootNavigator() {
 export default function AppRoot() {
   
   return (
-    <AuthProvider>
-      <NavigationContainer>
-        <RootNavigator />
-      </NavigationContainer>
-    </AuthProvider>
-    
+    <QueryProvider>
+      <AuthProvider>
+        <NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </AuthProvider>
+    </QueryProvider>
   );
 }
