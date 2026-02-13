@@ -6,11 +6,10 @@ import AppStack from '../navigation/AppStack';
 import QueryProvider from './QueryProvider';
 
 function RootNavigator() {
-  const {isLoggedIn} = useAuth();
+  const { isLoggedIn } = useAuth();
   return isLoggedIn ? <AppStack /> : <AuthStack />;
 }
 export default function AppRoot() {
-  
   return (
     <QueryProvider>
       <AuthProvider>

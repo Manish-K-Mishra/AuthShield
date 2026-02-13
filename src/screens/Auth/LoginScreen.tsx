@@ -1,36 +1,32 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet} from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/types';
 import { useAuth } from './AuthContext';
 
 type props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
-export default function LoginScreen({navigation}: props){
+export default function LoginScreen({ navigation }: props) {
   const { loginMock } = useAuth();
 
   return (
-    <View style = {styles.container}>
-      <Text style ={styles.loginText}>Login</Text>
+    <View style={styles.container}>
+      <Text style={styles.loginText}>Login</Text>
       <Text>Plcegolder Screen </Text>
 
-      <Button
-        title='Go to Login again (Test)'
-        onPress={loginMock}
-      />
+      <Button title="Go to Login again (Test)" onPress={loginMock} />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     padding: 16,
-    gap: 12
+    gap: 12,
   },
-  loginText:{
+  loginText: {
     fontSize: 20,
-    fontWeight: 700
-  }
-
-})
+    fontWeight: 700,
+  },
+});
