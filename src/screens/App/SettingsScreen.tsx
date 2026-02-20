@@ -6,13 +6,13 @@ import { useAuth } from '../Auth/AuthContext';
 
 type props = NativeStackScreenProps<AppStackParamList, 'Settings'>;
 export default function SettingsScreen({ navigation }: props) {
-  const { logoutMock } = useAuth();
+  const { clearSession } = useAuth();
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Settings</Text>
       <Text>Settings Page Placeholders</Text>
 
-      <Button title="Back" onPress={logoutMock} />
+      <Button title="Logout" onPress={clearSession} />
     </View>
   );
 }
